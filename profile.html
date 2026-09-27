@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - FitZone Gym Management</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="bi bi-fire"></i>
+            <span>FitZone</span>
+        </div>
+
+        <div class="sidebar-menu">
+
+            <p class="menu-title">MAIN</p>
+
+            <a href="dashboard.html">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="members.html">
+                <i class="bi bi-people-fill"></i>
+                <span>Members</span>
+            </a>
+
+            <a href="trainers.html">
+                <i class="bi bi-person-badge-fill"></i>
+                <span>Trainers</span>
+            </a>
+
+            <a href="memberships.html">
+                <i class="bi bi-card-checklist"></i>
+                <span>Memberships</span>
+            </a>
+
+            <a href="attendance.html">
+                <i class="bi bi-calendar-check-fill"></i>
+                <span>Attendance</span>
+            </a>
+
+            <a href="workouts.html">
+                <i class="bi bi-activity"></i>
+                <span>Workout & Diet</span>
+            </a>
+
+            <a href="payments.html">
+                <i class="bi bi-credit-card-fill"></i>
+                <span>Payments</span>
+            </a>
+
+            <p class="menu-title">ACCOUNT</p>
+
+            <a href="profile.html" class="active">
+                <i class="bi bi-person-circle"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="settings.html">
+                <i class="bi bi-gear-fill"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" onclick="logout()">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <nav class="top-navbar">
+
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="page-title">
+
+                <h4>My Profile</h4>
+
+                <p>Manage your administrator profile</p>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button class="notification-btn">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar" id="topAvatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <strong id="topName">
+                            Admin
+                        </strong>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+
+        <div class="content-area">
+
+            <div class="content-header">
+
+                <div>
+
+                    <h2>My Profile</h2>
+
+                    <p>
+                        View and update your personal information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROFILE ================= -->
+
+            <div class="profile-layout">
+
+
+                <!-- PROFILE CARD -->
+
+                <div class="profile-card">
+
+                    <div class="profile-cover"></div>
+
+
+                    <div class="profile-main">
+
+                        <div class="profile-photo-wrapper">
+
+                            <div class="profile-photo"
+                                id="profilePhoto">
+
+                                A
+
+                            </div>
+
+                            <label for="profilePhotoInput"
+                                class="photo-edit-btn">
+
+                                <i class="bi bi-camera-fill"></i>
+
+                            </label>
+
+                            <input type="file"
+                                id="profilePhotoInput"
+                                accept="image/*"
+                                hidden
+                                onchange="changeProfilePhoto(event)">
+
+                        </div>
+
+
+                        <h3 id="profileDisplayName">
+                            Admin
+                        </h3>
+
+                        <p>
+                            Gym Administrator
+                        </p>
+
+
+                        <div class="profile-status">
+
+                            <span class="online-dot"></span>
+
+                            Active Account
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-summary">
+
+                        <div>
+
+                            <strong>
+                                <i class="bi bi-calendar3"></i>
+                                Joined
+                            </strong>
+
+                            <span>
+                                January 2026
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                <i class="bi bi-shield-check"></i>
+                                Role
+                            </strong>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE FORM -->
+
+                <div class="profile-form-card">
+
+                    <div class="section-card-header">
+
+                        <div>
+
+                            <h5>Personal Information</h5>
+
+                            <p>
+                                Update your account information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="profileForm">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>
+                                    Full Name
+                                </label>
+
+                                <input type="text"
+                                    id="profileName"
+                                    class="form-control"
+                                    value="Admin"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                    id="profileEmail"
+                                    class="form-control"
+                                    value="admin@fitzone.com"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>
+                                    Phone Number
+                                </label>
+
+                                <input type="tel"
+                                    id="profilePhone"
+                                    class="form-control"
+                                    value="+91 98765 43210"
+                                    placeholder="Enter phone number">
+
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label>
+                                    Role
+                                </label>
+
+                                <input type="text"
+                                    class="form-control"
+                                    value="Administrator"
+                                    readonly>
+
+                            </div>
+
+
+                            <div class="col-12 mb-3">
+
+                                <label>
+                                    Address
+                                </label>
+
+                                <textarea
+                                    id="profileAddress"
+                                    class="form-control"
+                                    rows="3"
+                                    placeholder="Enter your address">FitZone Gym & Fitness Center</textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-form-buttons">
+
+                            <button type="button"
+                                class="btn-secondary-custom"
+                                onclick="resetProfile()">
+
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                Reset
+
+                            </button>
+
+
+                            <button type="submit"
+                                class="btn-primary-custom">
+
+                                <i class="bi bi-check-lg"></i>
+                                Save Changes
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SECURITY ================= -->
+
+            <div class="profile-security-card">
+
+                <div class="section-card-header">
+
+                    <div>
+
+                        <h5>
+                            <i class="bi bi-shield-lock"></i>
+                            Security
+                        </h5>
+
+                        <p>
+                            Manage your account password and security.
+                        </p>
+
+                    </div>
+
+                    <button class="btn-primary-custom"
+                        onclick="openPasswordModal()">
+
+                        <i class="bi bi-key"></i>
+                        Change Password
+
+                    </button>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <div class="security-icon">
+
+                        <i class="bi bi-lock-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Password</strong>
+
+                        <p>
+                            Your password is securely stored.
+                        </p>
+
+                    </div>
+
+                    <span class="security-status">
+                        Protected
+                    </span>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <div class="security-icon">
+
+                        <i class="bi bi-phone-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Account Security</strong>
+
+                        <p>
+                            Your FitZone administrator account is active.
+                        </p>
+
+                    </div>
+
+                    <span class="security-status">
+                        Active
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= CHANGE PASSWORD MODAL ================= -->
+
+    <div class="modal fade"
+        id="passwordModal"
+        tabindex="-1">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content custom-modal">
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <h5>
+                            Change Password
+                        </h5>
+
+                        <p>
+                            Update your account password.
+                        </p>
+
+                    </div>
+
+                    <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body">
+
+                    <form id="passwordForm">
+
+                        <div class="mb-3">
+
+                            <label>
+                                Current Password
+                            </label>
+
+                            <div class="password-input">
+
+                                <input type="password"
+                                    id="currentPassword"
+                                    class="form-control"
+                                    required>
+
+                                <button type="button"
+                                    onclick="togglePassword('currentPassword', this)">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label>
+                                New Password
+                            </label>
+
+                            <div class="password-input">
+
+                                <input type="password"
+                                    id="newPassword"
+                                    class="form-control"
+                                    minlength="6"
+                                    required>
+
+                                <button type="button"
+                                    onclick="togglePassword('newPassword', this)">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label>
+                                Confirm New Password
+                            </label>
+
+                            <div class="password-input">
+
+                                <input type="password"
+                                    id="confirmPassword"
+                                    class="form-control"
+                                    minlength="6"
+                                    required>
+
+                                <button type="button"
+                                    onclick="togglePassword('confirmPassword', this)">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal-buttons">
+
+                            <button type="button"
+                                class="btn-secondary-custom"
+                                data-bs-dismiss="modal">
+
+                                Cancel
+
+                            </button>
+
+
+                            <button type="submit"
+                                class="btn-primary-custom">
+
+                                <i class="bi bi-check-lg"></i>
+                                Update Password
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* ========================================
+           LOGIN PROTECTION
+        ======================================== */
+
+        const isLoggedIn =
+            localStorage.getItem("fitzoneLoggedIn");
+
+        if (isLoggedIn !== "true") {
+
+            window.location.href = "login.html";
+
+        }
+
+
+        /* ========================================
+           PROFILE DATA
+        ======================================== */
+
+        let profile =
+            JSON.parse(
+                localStorage.getItem("fitzoneProfile")
+            ) || {
+
+                name: "Admin",
+
+                email: "admin@fitzone.com",
+
+                phone: "+91 98765 43210",
+
+                address:
+                    "FitZone Gym & Fitness Center",
+
+                photo: ""
+
+            };
+
+
+        /* ========================================
+           LOAD PROFILE
+        ======================================== */
+
+        function loadProfile() {
+
+            document.getElementById("profileName").value =
+                profile.name;
+
+            document.getElementById("profileEmail").value =
+                profile.email;
+
+            document.getElementById("profilePhone").value =
+                profile.phone;
+
+            document.getElementById("profileAddress").value =
+                profile.address;
+
+
+            document.getElementById("profileDisplayName")
+                .textContent = profile.name;
+
+
+            document.getElementById("topName")
+                .textContent = profile.name;
+
+
+            const firstLetter =
+                profile.name.charAt(0).toUpperCase();
+
+
+            if (profile.photo) {
+
+                document.getElementById("profilePhoto").innerHTML = `
+                    <img src="${profile.photo}"
+                         alt="Profile Photo">
+                `;
+
+                document.getElementById("topAvatar").innerHTML = `
+                    <img src="${profile.photo}"
+                         alt="Profile Photo">
+                `;
+
+            } else {
+
+                document.getElementById("profilePhoto")
+                    .textContent = firstLetter;
+
+                document.getElementById("topAvatar")
+                    .textContent = firstLetter;
+
+            }
+
+        }
+
+
+        /* ========================================
+           SAVE PROFILE
+        ======================================== */
+
+        document.getElementById("profileForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+
+                profile.name =
+                    document.getElementById("profileName")
+                        .value.trim();
+
+
+                profile.email =
+                    document.getElementById("profileEmail")
+                        .value.trim();
+
+
+                profile.phone =
+                    document.getElementById("profilePhone")
+                        .value.trim();
+
+
+                profile.address =
+                    document.getElementById("profileAddress")
+                        .value.trim();
+
+
+                localStorage.setItem(
+                    "fitzoneProfile",
+                    JSON.stringify(profile)
+                );
+
+
+                loadProfile();
+
+
+                alert(
+                    "Profile updated successfully!"
+                );
+
+            });
+
+
+        /* ========================================
+           CHANGE PROFILE PHOTO
+        ======================================== */
+
+        function changeProfilePhoto(event) {
+
+            const file =
+                event.target.files[0];
+
+
+            if (!file) return;
+
+
+            if (!file.type.startsWith("image/")) {
+
+                alert("Please select an image file.");
+
+                return;
+
+            }
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload = function (e) {
+
+                profile.photo =
+                    e.target.result;
+
+
+                localStorage.setItem(
+                    "fitzoneProfile",
+                    JSON.stringify(profile)
+                );
+
+
+                loadProfile();
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        }
+
+
+        /* ========================================
+           RESET PROFILE
+        ======================================== */
+
+        function resetProfile() {
+
+            loadProfile();
+
+        }
+
+
+        /* ========================================
+           OPEN PASSWORD MODAL
+        ======================================== */
+
+        function openPasswordModal() {
+
+            document.getElementById("passwordForm")
+                .reset();
+
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById("passwordModal")
+                );
+
+
+            modal.show();
+
+        }
+
+
+        /* ========================================
+           CHANGE PASSWORD
+        ======================================== */
+
+        document.getElementById("passwordForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+
+                const currentPassword =
+                    document.getElementById("currentPassword")
+                        .value;
+
+
+                const newPassword =
+                    document.getElementById("newPassword")
+                        .value;
+
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword")
+                        .value;
+
+
+                if (newPassword !== confirmPassword) {
+
+                    alert(
+                        "New password and confirm password do not match."
+                    );
+
+                    return;
+
+                }
+
+
+                if (newPassword.length < 6) {
+
+                    alert(
+                        "Password must contain at least 6 characters."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                    Demo password handling.
+                    This is a frontend-only project.
+                */
+
+                localStorage.setItem(
+                    "fitzoneAdminPassword",
+                    newPassword
+                );
+
+
+                const modal =
+                    bootstrap.Modal.getInstance(
+                        document.getElementById("passwordModal")
+                    );
+
+
+                modal.hide();
+
+
+                alert(
+                    "Password updated successfully!"
+                );
+
+            });
+
+
+        /* ========================================
+           SHOW / HIDE PASSWORD
+        ======================================== */
+
+        function togglePassword(inputId, button) {
+
+            const input =
+                document.getElementById(inputId);
+
+
+            const icon =
+                button.querySelector("i");
+
+
+            if (input.type === "password") {
+
+                input.type = "text";
+
+                icon.classList.remove("bi-eye");
+
+                icon.classList.add("bi-eye-slash");
+
+            } else {
+
+                input.type = "password";
+
+                icon.classList.remove("bi-eye-slash");
+
+                icon.classList.add("bi-eye");
+
+            }
+
+        }
+
+
+        /* ========================================
+           SIDEBAR TOGGLE
+        ======================================== */
+
+        function toggleSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.toggle("sidebar-open");
+
+        }
+
+
+        /* ========================================
+           LOGOUT
+        ======================================== */
+
+        function logout() {
+
+            localStorage.removeItem(
+                "fitzoneLoggedIn"
+            );
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        /* ========================================
+           INITIAL LOAD
+        ======================================== */
+
+        loadProfile();
+
+    </script>
+
+</body>
+
+</html>

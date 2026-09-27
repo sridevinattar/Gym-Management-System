@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitZone - Gym Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION BAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-activity"></i>
+            FitZone
+        </a>
+
+
+        <!-- Mobile Menu Button -->
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#plans">
+                        Plans
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#trainers">
+                        Trainers
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+
+                    <a class="btn login-btn" href="login.html">
+                        Admin Login
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section id="home" class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-100">
+
+            <div class="col-lg-6">
+
+                <span class="hero-small-text">
+                    WELCOME TO FITZONE
+                </span>
+
+                <h1>
+                    Build Your
+                    <span>Stronger</span>
+                    Future
+                </h1>
+
+                <p>
+                    Train smarter, stay stronger and achieve your
+                    fitness goals with professional trainers,
+                    modern equipment and personalized workout plans.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#plans" class="btn primary-btn">
+                        View Membership Plans
+                    </a>
+
+                    <a href="#about" class="btn secondary-btn">
+                        Explore FitZone
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="hero-image-box">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+                        alt="Modern Gym"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT SECTION
+========================= -->
+
+<section id="about" class="about-section section-padding">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 mb-4 mb-lg-0">
+
+                <img
+                    src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80"
+                    class="about-image"
+                    alt="Gym Interior"
+                >
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="section-label">
+                    ABOUT FITZONE
+                </span>
+
+                <h2>
+                    More Than Just
+                    <span>A Gym</span>
+                </h2>
+
+                <p>
+                    FitZone is a modern fitness center designed to
+                    help people build healthy habits and achieve
+                    their fitness goals.
+                </p>
+
+                <p>
+                    Our gym provides modern equipment, experienced
+                    trainers and customized workout programs for
+                    beginners as well as experienced members.
+                </p>
+
+
+                <div class="row about-features">
+
+                    <div class="col-6">
+
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Modern Equipment
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Expert Trainers
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Flexible Plans
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Clean Environment
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SERVICES SECTION
+========================= -->
+
+<section id="services" class="services-section section-padding">
+
+    <div class="container">
+
+        <div class="text-center section-heading">
+
+            <span class="section-label">
+                WHAT WE OFFER
+            </span>
+
+            <h2>
+                Our <span>Services</span>
+            </h2>
+
+            <p>
+                Everything you need to stay fit and healthy.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Service 1 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-person-arms-up"></i>
+                    </div>
+
+                    <h4>Personal Training</h4>
+
+                    <p>
+                        Get personalized guidance from experienced
+                        fitness trainers.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Service 2 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+
+                    <h4>Cardio Training</h4>
+
+                    <p>
+                        Improve your endurance and cardiovascular
+                        fitness with modern equipment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Service 3 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+
+                    <h4>Strength Training</h4>
+
+                    <p>
+                        Build strength and muscle with structured
+                        strength training programs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Service 4 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-activity"></i>
+                    </div>
+
+                    <h4>Workout Plans</h4>
+
+                    <p>
+                        Follow customized workout plans designed
+                        according to your fitness goals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MEMBERSHIP PLANS
+========================= -->
+
+<section id="plans" class="plans-section section-padding">
+
+    <div class="container">
+
+        <div class="text-center section-heading">
+
+            <span class="section-label">
+                MEMBERSHIP
+            </span>
+
+            <h2>
+                Choose Your <span>Plan</span>
+            </h2>
+
+            <p>
+                Simple and flexible membership options.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 justify-content-center">
+
+
+            <!-- Basic -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="plan-card">
+
+                    <h3>Basic</h3>
+
+                    <div class="price">
+                        ₹999
+                        <small>/ month</small>
+                    </div>
+
+                    <p class="plan-description">
+                        Perfect for beginners starting their fitness
+                        journey.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Gym Access
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Cardio Equipment
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Locker Facility
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Basic Workout Guidance
+                        </li>
+
+                    </ul>
+
+                    <a href="login.html" class="btn plan-btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Standard -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="plan-card popular-plan">
+
+                    <div class="popular-badge">
+                        POPULAR
+                    </div>
+
+                    <h3>Standard</h3>
+
+                    <div class="price">
+                        ₹1,499
+                        <small>/ month</small>
+                    </div>
+
+                    <p class="plan-description">
+                        A balanced plan for regular fitness training.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Everything in Basic
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Personal Training
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Customized Workout Plan
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Progress Tracking
+                        </li>
+
+                    </ul>
+
+                    <a href="login.html" class="btn plan-btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Premium -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="plan-card">
+
+                    <h3>Premium</h3>
+
+                    <div class="price">
+                        ₹2,499
+                        <small>/ month</small>
+                    </div>
+
+                    <p class="plan-description">
+                        Complete fitness support with personalized
+                        coaching.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Everything in Standard
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Dedicated Trainer
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Diet Plan
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check2"></i>
+                            Priority Support
+                        </li>
+
+                    </ul>
+
+                    <a href="login.html" class="btn plan-btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TRAINERS SECTION
+========================= -->
+
+<section id="trainers" class="trainers-section section-padding">
+
+    <div class="container">
+
+        <div class="text-center section-heading">
+
+            <span class="section-label">
+                OUR TEAM
+            </span>
+
+            <h2>
+                Meet Our <span>Trainers</span>
+            </h2>
+
+            <p>
+                Learn from experienced fitness professionals.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Trainer 1 -->
+
+            <div class="col-md-4">
+
+                <div class="trainer-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80"
+                        alt="Fitness Trainer"
+                    >
+
+                    <div class="trainer-info">
+
+                        <h4>Alex Johnson</h4>
+
+                        <p>Strength & Conditioning Coach</p>
+
+                        <div class="trainer-social">
+
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-linkedin"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Trainer 2 -->
+
+            <div class="col-md-4">
+
+                <div class="trainer-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=600&q=80"
+                        alt="Fitness Trainer"
+                    >
+
+                    <div class="trainer-info">
+
+                        <h4>Sarah Williams</h4>
+
+                        <p>Fitness & Wellness Coach</p>
+
+                        <div class="trainer-social">
+
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-linkedin"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Trainer 3 -->
+
+            <div class="col-md-4">
+
+                <div class="trainer-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=80"
+                        alt="Fitness Trainer"
+                    >
+
+                    <div class="trainer-info">
+
+                        <h4>David Miller</h4>
+
+                        <p>Personal Training Specialist</p>
+
+                        <div class="trainer-social">
+
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-linkedin"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT SECTION
+========================= -->
+
+<section id="contact" class="contact-section section-padding">
+
+    <div class="container">
+
+        <div class="text-center section-heading">
+
+            <span class="section-label">
+                GET IN TOUCH
+            </span>
+
+            <h2>
+                Contact <span>Us</span>
+            </h2>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="contact-box">
+
+                    <form id="contactForm">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label>
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label>
+                                    Message
+                                </label>
+
+                                <textarea
+                                    class="form-control"
+                                    rows="5"
+                                    placeholder="Write your message..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="col-12 text-center">
+
+                                <button
+                                    type="submit"
+                                    class="btn primary-btn"
+                                >
+                                    Send Message
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h4>
+                    <i class="bi bi-activity"></i>
+                    FitZone
+                </h4>
+
+                <p>
+                    Your partner in building a stronger,
+                    healthier and more active lifestyle.
+                </p>
+
+            </div>
+
+
+            <div class="col-md-6 text-md-end">
+
+                <div class="footer-links">
+
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#plans">Plans</a>
+                    <a href="#contact">Contact</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="text-center">
+
+            <p class="mb-0">
+                © 2026 FitZone Gym. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- Contact Form -->
+
+<script>
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert("Thank you! Your message has been submitted.");
+
+        this.reset();
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

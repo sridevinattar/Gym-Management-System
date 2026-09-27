@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workout Plans - FitZone</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         SIDEBAR
+    =============================== -->
+
+    <div class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <i class="bi bi-heart-pulse-fill"></i>
+            FitZone
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="bi bi-grid-fill"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="members.html">
+                    <i class="bi bi-people-fill"></i>
+                    Members
+                </a>
+            </li>
+
+            <li>
+                <a href="trainers.html">
+                    <i class="bi bi-person-badge-fill"></i>
+                    Trainers
+                </a>
+            </li>
+
+            <li>
+                <a href="memberships.html">
+                    <i class="bi bi-card-checklist"></i>
+                    Memberships
+                </a>
+            </li>
+
+            <li>
+                <a href="attendance.html">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    Attendance
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="workouts.html">
+                    <i class="bi bi-activity"></i>
+                    Workout Plans
+                </a>
+            </li>
+
+            <li>
+                <a href="payments.html">
+                    <i class="bi bi-credit-card-fill"></i>
+                    Payments
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html">
+                    <i class="bi bi-person-circle"></i>
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    <i class="bi bi-gear-fill"></i>
+                    Settings
+                </a>
+            </li>
+
+            <li class="logout-item">
+                <a href="#" onclick="logout()">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <div class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <nav class="top-navbar">
+
+            <button class="menu-btn" onclick="toggleSidebar()">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="page-title">
+                Workout Plans
+            </div>
+
+            <div class="top-right">
+
+                <i class="bi bi-bell notification-icon"></i>
+
+                <div class="user-info">
+
+                    <div class="user-avatar">
+                        SD
+                    </div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Gym Manager</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- PAGE CONTENT -->
+
+        <div class="page-content">
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+                    <h2>Workout & Diet Plans</h2>
+                    <p>Create and assign fitness plans to gym members.</p>
+                </div>
+
+                <button class="btn primary-btn"
+                    onclick="openAddPlan()">
+
+                    <i class="bi bi-plus-lg"></i>
+                    Create Plan
+
+                </button>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="row g-4 mb-4">
+
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="bi bi-activity"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="totalPlans">0</h3>
+                            <p>Total Plans</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i class="bi bi-person-check-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="activePlans">0</h3>
+                            <p>Active Plans</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="assignedMembers">0</h3>
+                            <p>Assigned Members</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="content-card mb-4">
+
+                <div class="row g-3">
+
+                    <div class="col-md-5">
+
+                        <label class="form-label">
+                            Search Plan
+                        </label>
+
+                        <div class="search-box">
+
+                            <i class="bi bi-search"></i>
+
+                            <input type="text"
+                                id="searchPlan"
+                                placeholder="Search plan or member..."
+                                onkeyup="filterPlans()">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Plan Type
+                        </label>
+
+                        <select id="filterType"
+                            class="form-select"
+                            onchange="filterPlans()">
+
+                            <option value="All">
+                                All Plans
+                            </option>
+
+                            <option value="Workout">
+                                Workout Plans
+                            </option>
+
+                            <option value="Diet">
+                                Diet Plans
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-md-3 d-flex align-items-end">
+
+                        <button class="btn btn-outline-secondary w-100"
+                            onclick="resetPlanFilters()">
+
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Reset
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLAN CARDS -->
+
+            <div class="row g-4" id="planContainer">
+
+                <!-- Plans appear here -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==============================
+         ADD / EDIT PLAN MODAL
+    =============================== -->
+
+    <div class="modal fade"
+        id="planModal"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title"
+                        id="planModalTitle">
+
+                        Create Plan
+
+                    </h5>
+
+                    <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body">
+
+                    <form id="planForm">
+
+                        <input type="hidden"
+                            id="planId">
+
+
+                        <div class="row g-3">
+
+                            <!-- PLAN NAME -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Plan Name
+                                </label>
+
+                                <input type="text"
+                                    id="planName"
+                                    class="form-control"
+                                    placeholder="e.g. Weight Loss Plan"
+                                    required>
+
+                            </div>
+
+
+                            <!-- PLAN TYPE -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Plan Type
+                                </label>
+
+                                <select id="planType"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="Workout">
+                                        Workout
+                                    </option>
+
+                                    <option value="Diet">
+                                        Diet
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- MEMBER -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Assign Member
+                                </label>
+
+                                <select id="planMember"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="">
+                                        Select Member
+                                    </option>
+
+                                    <option value="Rahul Kumar">
+                                        Rahul Kumar
+                                    </option>
+
+                                    <option value="Priya Sharma">
+                                        Priya Sharma
+                                    </option>
+
+                                    <option value="Arjun Reddy">
+                                        Arjun Reddy
+                                    </option>
+
+                                    <option value="Sneha Patel">
+                                        Sneha Patel
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- TRAINER -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Trainer
+                                </label>
+
+                                <select id="planTrainer"
+                                    class="form-select">
+
+                                    <option value="">
+                                        Select Trainer
+                                    </option>
+
+                                    <option value="Mike Anderson">
+                                        Mike Anderson
+                                    </option>
+
+                                    <option value="Sarah Wilson">
+                                        Sarah Wilson
+                                    </option>
+
+                                    <option value="David Lee">
+                                        David Lee
+                                    </option>
+
+                                    <option value="Ananya Rao">
+                                        Ananya Rao
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- DURATION -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Duration
+                                </label>
+
+                                <select id="planDuration"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="4 Weeks">
+                                        4 Weeks
+                                    </option>
+
+                                    <option value="8 Weeks">
+                                        8 Weeks
+                                    </option>
+
+                                    <option value="12 Weeks">
+                                        12 Weeks
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- STATUS -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Status
+                                </label>
+
+                                <select id="planStatus"
+                                    class="form-select">
+
+                                    <option value="Active">
+                                        Active
+                                    </option>
+
+                                    <option value="Inactive">
+                                        Inactive
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- DESCRIPTION -->
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Plan Details
+                                </label>
+
+                                <textarea id="planDetails"
+                                    class="form-control"
+                                    rows="5"
+                                    placeholder="Enter workout exercises or diet instructions..."
+                                    required></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                        Cancel
+
+                    </button>
+
+                    <button type="button"
+                        class="btn primary-btn"
+                        onclick="savePlan()">
+
+                        Save Plan
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==============================
+         VIEW PLAN MODAL
+    =============================== -->
+
+    <div class="modal fade"
+        id="viewPlanModal"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">
+                        Plan Details
+                    </h5>
+
+                    <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+
+                <div class="modal-body">
+
+                    <div class="plan-view">
+
+                        <div class="plan-view-icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+
+                        <h3 id="viewPlanName">
+                            Weight Loss Plan
+                        </h3>
+
+                        <span id="viewPlanType"
+                            class="plan-type-badge">
+                            Workout
+                        </span>
+
+                        <div class="view-plan-info">
+
+                            <div>
+                                <span>Member</span>
+                                <strong id="viewPlanMember">
+                                    -
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Trainer</span>
+                                <strong id="viewPlanTrainer">
+                                    -
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Duration</span>
+                                <strong id="viewPlanDuration">
+                                    -
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Status</span>
+                                <strong id="viewPlanStatus">
+                                    -
+                                </strong>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <h5>
+                            Plan Details
+                        </h5>
+
+                        <p id="viewPlanDetails">
+                            -
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script>
+
+        /* ========================================
+           LOGIN PROTECTION
+        ======================================== */
+
+        const isLoggedIn =
+            localStorage.getItem("fitzoneLoggedIn");
+
+        if (isLoggedIn !== "true") {
+            window.location.href = "login.html";
+        }
+
+
+        /* ========================================
+           PLAN DATA
+        ======================================== */
+
+        let plans =
+            JSON.parse(
+                localStorage.getItem("fitzonePlans")
+            ) || [
+
+                {
+                    id: 1,
+                    name: "Weight Loss Program",
+                    type: "Workout",
+                    member: "Rahul Kumar",
+                    trainer: "Mike Anderson",
+                    duration: "12 Weeks",
+                    status: "Active",
+                    details:
+                        "Monday: Cardio and treadmill\nTuesday: Full body workout\nWednesday: Rest\nThursday: Strength training\nFriday: Cardio\nSaturday: Core workout"
+                },
+
+                {
+                    id: 2,
+                    name: "Beginner Fitness Plan",
+                    type: "Workout",
+                    member: "Priya Sharma",
+                    trainer: "Sarah Wilson",
+                    duration: "8 Weeks",
+                    status: "Active",
+                    details:
+                        "Light cardio, stretching, mobility exercises and beginner strength training."
+                },
+
+                {
+                    id: 3,
+                    name: "Healthy Diet Plan",
+                    type: "Diet",
+                    member: "Sneha Patel",
+                    trainer: "Ananya Rao",
+                    duration: "12 Weeks",
+                    status: "Active",
+                    details:
+                        "Breakfast: Oats and fruits\nLunch: Rice, vegetables and protein\nSnack: Fruits and nuts\nDinner: Light meal with vegetables"
+                },
+
+                {
+                    id: 4,
+                    name: "Muscle Building Plan",
+                    type: "Workout",
+                    member: "Arjun Reddy",
+                    trainer: "David Lee",
+                    duration: "12 Weeks",
+                    status: "Inactive",
+                    details:
+                        "Chest, back, shoulders, legs and arms training with progressive resistance exercises."
+                }
+
+            ];
+
+
+        localStorage.setItem(
+            "fitzonePlans",
+            JSON.stringify(plans)
+        );
+
+
+        /* ========================================
+           DISPLAY PLANS
+        ======================================== */
+
+        function displayPlans(data = plans) {
+
+            const container =
+                document.getElementById(
+                    "planContainer"
+                );
+
+            container.innerHTML = "";
+
+
+            if (data.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="col-12">
+
+                        <div class="empty-state">
+
+                            <i class="bi bi-clipboard-x"></i>
+
+                            <h4>No plans found</h4>
+
+                            <p>
+                                Try another search or create a new plan.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+                updatePlanStats();
+
+                return;
+            }
+
+
+            data.forEach(plan => {
+
+                const typeClass =
+                    plan.type === "Workout"
+                        ? "workout-type"
+                        : "diet-type";
+
+
+                const statusClass =
+                    plan.status === "Active"
+                        ? "active-status"
+                        : "inactive-status";
+
+
+                const icon =
+                    plan.type === "Workout"
+                        ? "bi-activity"
+                        : "bi-egg-fried";
+
+
+                container.innerHTML += `
+
+                    <div class="col-md-6 col-xl-4">
+
+                        <div class="plan-card">
+
+                            <div class="plan-card-header">
+
+                                <div class="plan-icon">
+                                    <i class="bi ${icon}"></i>
+                                </div>
+
+                                <span class="${typeClass}">
+                                    ${plan.type}
+                                </span>
+
+                            </div>
+
+
+                            <div class="plan-card-body">
+
+                                <div class="plan-title-row">
+
+                                    <h3>
+                                        ${escapeHTML(plan.name)}
+                                    </h3>
+
+                                    <span class="${statusClass}">
+                                        ${plan.status}
+                                    </span>
+
+                                </div>
+
+
+                                <div class="plan-member">
+
+                                    <i class="bi bi-person-circle"></i>
+
+                                    <strong>
+                                        ${escapeHTML(plan.member)}
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="plan-info">
+
+                                    <div>
+
+                                        <i class="bi bi-person-badge"></i>
+
+                                        <span>
+                                            ${escapeHTML(plan.trainer || "Not Assigned")}
+                                        </span>
+
+                                    </div>
+
+                                    <div>
+
+                                        <i class="bi bi-calendar3"></i>
+
+                                        <span>
+                                            ${escapeHTML(plan.duration)}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <p class="plan-description">
+
+                                    ${escapeHTML(
+                                        plan.details
+                                            .split("\n")[0]
+                                    )}
+
+                                </p>
+
+
+                                <div class="plan-actions">
+
+                                    <button
+                                        class="btn btn-sm btn-outline-secondary"
+                                        onclick="viewPlan(${plan.id})">
+
+                                        <i class="bi bi-eye"></i>
+                                        View
+
+                                    </button>
+
+
+                                    <button
+                                        class="btn btn-sm btn-outline-primary"
+                                        onclick="editPlan(${plan.id})">
+
+                                        <i class="bi bi-pencil"></i>
+                                        Edit
+
+                                    </button>
+
+
+                                    <button
+                                        class="btn btn-sm btn-outline-danger"
+                                        onclick="deletePlan(${plan.id})">
+
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            updatePlanStats();
+
+        }
+
+
+        /* ========================================
+           UPDATE STATS
+        ======================================== */
+
+        function updatePlanStats() {
+
+            document.getElementById(
+                "totalPlans"
+            ).textContent =
+                plans.length;
+
+
+            const active =
+                plans.filter(
+                    plan =>
+                        plan.status === "Active"
+                ).length;
+
+
+            document.getElementById(
+                "activePlans"
+            ).textContent =
+                active;
+
+
+            const members =
+                new Set(
+                    plans.map(
+                        plan => plan.member
+                    )
+                );
+
+
+            document.getElementById(
+                "assignedMembers"
+            ).textContent =
+                members.size;
+
+        }
+
+
+        /* ========================================
+           OPEN ADD PLAN
+        ======================================== */
+
+        function openAddPlan() {
+
+            document
+                .getElementById("planForm")
+                .reset();
+
+
+            document
+                .getElementById("planId")
+                .value = "";
+
+
+            document
+                .getElementById("planModalTitle")
+                .textContent =
+                "Create Plan";
+
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById(
+                        "planModal"
+                    )
+                );
+
+            modal.show();
+
+        }
+
+
+        /* ========================================
+           SAVE PLAN
+        ======================================== */
+
+        function savePlan() {
+
+            const form =
+                document.getElementById(
+                    "planForm"
+                );
+
+
+            if (!form.checkValidity()) {
+
+                form.reportValidity();
+
+                return;
+
+            }
+
+
+            const id =
+                document.getElementById(
+                    "planId"
+                ).value;
+
+
+            const planData = {
+
+                name:
+                    document
+                        .getElementById("planName")
+                        .value
+                        .trim(),
+
+                type:
+                    document
+                        .getElementById("planType")
+                        .value,
+
+                member:
+                    document
+                        .getElementById("planMember")
+                        .value,
+
+                trainer:
+                    document
+                        .getElementById("planTrainer")
+                        .value,
+
+                duration:
+                    document
+                        .getElementById("planDuration")
+                        .value,
+
+                status:
+                    document
+                        .getElementById("planStatus")
+                        .value,
+
+                details:
+                    document
+                        .getElementById("planDetails")
+                        .value
+                        .trim()
+
+            };
+
+
+            if (id) {
+
+                const index =
+                    plans.findIndex(
+                        plan =>
+                            plan.id == id
+                    );
+
+
+                if (index !== -1) {
+
+                    plans[index] = {
+
+                        ...plans[index],
+
+                        ...planData
+
+                    };
+
+                }
+
+            } else {
+
+                planData.id =
+                    Date.now();
+
+                plans.push(planData);
+
+            }
+
+
+            localStorage.setItem(
+                "fitzonePlans",
+                JSON.stringify(plans)
+            );
+
+
+            displayPlans();
+
+
+            const modal =
+                bootstrap.Modal.getInstance(
+                    document.getElementById(
+                        "planModal"
+                    )
+                );
+
+            modal.hide();
+
+        }
+
+
+        /* ========================================
+           EDIT PLAN
+        ======================================== */
+
+        function editPlan(id) {
+
+            const plan =
+                plans.find(
+                    plan =>
+                        plan.id === id
+                );
+
+
+            if (!plan) {
+                return;
+            }
+
+
+            document
+                .getElementById("planId")
+                .value =
+                plan.id;
+
+
+            document
+                .getElementById("planName")
+                .value =
+                plan.name;
+
+
+            document
+                .getElementById("planType")
+                .value =
+                plan.type;
+
+
+            document
+                .getElementById("planMember")
+                .value =
+                plan.member;
+
+
+            document
+                .getElementById("planTrainer")
+                .value =
+                plan.trainer;
+
+
+            document
+                .getElementById("planDuration")
+                .value =
+                plan.duration;
+
+
+            document
+                .getElementById("planStatus")
+                .value =
+                plan.status;
+
+
+            document
+                .getElementById("planDetails")
+                .value =
+                plan.details;
+
+
+            document
+                .getElementById("planModalTitle")
+                .textContent =
+                "Edit Plan";
+
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById(
+                        "planModal"
+                    )
+                );
+
+            modal.show();
+
+        }
+
+
+        /* ========================================
+           VIEW PLAN
+        ======================================== */
+
+        function viewPlan(id) {
+
+            const plan =
+                plans.find(
+                    plan =>
+                        plan.id === id
+                );
+
+
+            if (!plan) {
+                return;
+            }
+
+
+            document
+                .getElementById("viewPlanName")
+                .textContent =
+                plan.name;
+
+
+            document
+                .getElementById("viewPlanType")
+                .textContent =
+                plan.type;
+
+
+            document
+                .getElementById("viewPlanMember")
+                .textContent =
+                plan.member;
+
+
+            document
+                .getElementById("viewPlanTrainer")
+                .textContent =
+                plan.trainer ||
+                "Not Assigned";
+
+
+            document
+                .getElementById("viewPlanDuration")
+                .textContent =
+                plan.duration;
+
+
+            document
+                .getElementById("viewPlanStatus")
+                .textContent =
+                plan.status;
+
+
+            document
+                .getElementById("viewPlanDetails")
+                .textContent =
+                plan.details;
+
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById(
+                        "viewPlanModal"
+                    )
+                );
+
+            modal.show();
+
+        }
+
+
+        /* ========================================
+           DELETE PLAN
+        ======================================== */
+
+        function deletePlan(id) {
+
+            const plan =
+                plans.find(
+                    plan =>
+                        plan.id === id
+                );
+
+
+            if (!plan) {
+                return;
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    "Are you sure you want to delete " +
+                    plan.name +
+                    "?"
+                );
+
+
+            if (!confirmDelete) {
+                return;
+            }
+
+
+            plans =
+                plans.filter(
+                    plan =>
+                        plan.id !== id
+                );
+
+
+            localStorage.setItem(
+                "fitzonePlans",
+                JSON.stringify(plans)
+            );
+
+
+            displayPlans();
+
+        }
+
+
+        /* ========================================
+           FILTER PLANS
+        ======================================== */
+
+        function filterPlans() {
+
+            const search =
+                document
+                    .getElementById("searchPlan")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            const type =
+                document
+                    .getElementById("filterType")
+                    .value;
+
+
+            const filtered =
+                plans.filter(plan => {
+
+                    const matchesSearch =
+
+                        plan.name
+                            .toLowerCase()
+                            .includes(search)
+
+                        ||
+
+                        plan.member
+                            .toLowerCase()
+                            .includes(search);
+
+
+                    const matchesType =
+                        type === "All" ||
+                        plan.type === type;
+
+
+                    return (
+                        matchesSearch &&
+                        matchesType
+                    );
+
+                });
+
+
+            displayPlans(filtered);
+
+        }
+
+
+        /* ========================================
+           RESET FILTERS
+        ======================================== */
+
+        function resetPlanFilters() {
+
+            document
+                .getElementById("searchPlan")
+                .value = "";
+
+
+            document
+                .getElementById("filterType")
+                .value = "All";
+
+
+            displayPlans();
+
+        }
+
+
+        /* ========================================
+           ESCAPE HTML
+        ======================================== */
+
+        function escapeHTML(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* ========================================
+           SIDEBAR TOGGLE
+        ======================================== */
+
+        function toggleSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.toggle("collapsed");
+
+        }
+
+
+        /* ========================================
+           LOGOUT
+        ======================================== */
+
+        function logout() {
+
+            localStorage.removeItem(
+                "fitzoneLoggedIn"
+            );
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        /* ========================================
+           LOAD PLANS
+        ======================================== */
+
+        displayPlans();
+
+    </script>
+
+</body>
+
+</html>
