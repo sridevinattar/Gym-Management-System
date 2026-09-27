@@ -2700,6 +2700,7 @@ body {
 
 .payment-stats {
     margin-bottom: 25px;
+    color:#0b0b0b;
 }
 
 .revenue-icon {
@@ -2709,6 +2710,7 @@ body {
 
 .payment-section {
     margin-top: 10px;
+   color:#edeaea;
 }
 
 .payment-filters {
